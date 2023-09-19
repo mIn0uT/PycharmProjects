@@ -1,9 +1,11 @@
+# Mini Python project that generates a password
+# User can choose if he/she wants to include digits or special characters
 import random
 import string
 
 
 def generate_password(min_length, numbers=True, special_characters=True):
-    # contain string characters based on their type
+    # container for string characters based on their type
     letters = string.ascii_letters
     digits = string.digits
     special = string.punctuation
@@ -36,10 +38,20 @@ def generate_password(min_length, numbers=True, special_characters=True):
 
     return pwd
 
+# asks the user if he/she wants to generate another password
+def new_password():
+    while True:
+        min_length = int(input("Enter the length of password: "))
+        has_number = input("Do you want to have numbers (y/n)? ").lower() == "y"
+        has_special = input("Do you want to have special characters (y/n)? ").lower() == "y"
 
-min_length = int(input("Enter the length of password: "))
-has_number = input("Do you want to have numbers (y/n)? ").lower() == "y"
-has_special = input("Do you want to have special characters (y/n)? ").lower() == "y"
+        pwd = generate_password(min_length, has_number, has_special)
+        print("Your password is:", pwd)
 
-pwd = generate_password(min_length, has_number, has_special)
-print("Your password is:", pwd)
+        again = input("Do you want to generate another password (y/n)? ").lower()
+        if again != "y":
+            break
+
+
+if __name__ == "__main__":
+    new_password()

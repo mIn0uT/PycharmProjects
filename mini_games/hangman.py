@@ -26,12 +26,11 @@ def hangman():
     while len(word_letters) > 0 and lives > 0:
         # letters used
         print('You have', lives, "lives left\n" "Letters used: ",
-              ' '.join(used_letters))  # put on  a single string all letters used separated by space
-        # what current word is (W - R D)
-        # add a letter if it's in used letters
-        # for loops to see all the letters in th word_list
+              ' '.join(used_letters))  # put on a single string all letters used separated by space
+        # a ternary expression that evaluates whether letter is in the used_letters list
+        # for each letter in 'word' check if it is in 'used_letter' list, if it is, add it to 'word_list' else add '-'
         word_list = [letter if letter in used_letters else '-' for letter in word]
-        print('Current word: ', ' '.join(word_list))
+        print('Current word: ', ' '.join(word_list))  # ie. (W - R D)
         # getting user input
         user_letter = input("Guess a letter: ").upper()
         if user_letter in alphabet - used_letters:  # check if letter haven't been used

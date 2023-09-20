@@ -86,9 +86,8 @@ def wpm_test(stdscr):
     
 # main function
 def main(stdscr):  # stdscr = standard screen
-    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)  # red text in white bg with index 1
+    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)  # red text in black bg with index 1
     curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)  # second pair of output color
-    curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # second pair of output color
 
     start_screen(stdscr)
     while True:
